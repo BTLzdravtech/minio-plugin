@@ -21,6 +21,7 @@ public class MinioConfiguration extends AbstractDescribableImpl<MinioConfigurati
     private static final long serialVersionUID = 4L;
 
     private String host;
+    private String region;
     private String credentialsId;
 
     public MinioConfiguration() {
@@ -28,8 +29,9 @@ public class MinioConfiguration extends AbstractDescribableImpl<MinioConfigurati
     }
 
     @DataBoundConstructor
-    public MinioConfiguration(String host, String credentialsId) {
+    public MinioConfiguration(String host, String region, String credentialsId) {
         this.host = host;
+        this.region = region;
         this.credentialsId = credentialsId;
     }
 
@@ -40,6 +42,15 @@ public class MinioConfiguration extends AbstractDescribableImpl<MinioConfigurati
     @DataBoundSetter
     public void setHost(String host) {
         this.host = host;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    @DataBoundSetter
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public String getCredentialsId() {

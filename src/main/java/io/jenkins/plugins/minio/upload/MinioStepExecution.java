@@ -45,7 +45,7 @@ public class MinioStepExecution {
 
     public boolean start() throws Exception {
 
-        MinioClient client = ClientUtil.getClient(step.getHost(), step.getCredentialsId(), run);
+        MinioClient client = ClientUtil.getClient(step.getHost(), step.getRegion(), step.getCredentialsId(), run);
 
         if (!client.bucketExists(BucketExistsArgs.builder().bucket(step.getBucket()).build())) {
             client.makeBucket(MakeBucketArgs.builder().bucket(step.getBucket()).build());

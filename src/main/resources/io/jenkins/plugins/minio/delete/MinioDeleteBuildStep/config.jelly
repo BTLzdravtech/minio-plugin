@@ -5,6 +5,10 @@
         <f:textbox />
     </f:entry>
 
+    <f:entry field="region" title="Region">
+        <f:textbox />
+    </f:entry>
+
     <f:entry title="Minio Credential" field="credentialsId" name="credentialsId">
         <c:select/>
     </f:entry>

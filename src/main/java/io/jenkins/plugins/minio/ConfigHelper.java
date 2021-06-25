@@ -10,7 +10,7 @@ public class ConfigHelper {
 
     }
 
-    public static MinioConfiguration getConfig(String host, String credentialsId) {
+    public static MinioConfiguration getConfig(String host, String region, String credentialsId) {
         MinioConfiguration config;
         // If host is empty, use global config
         if (StringUtils.isEmpty(host)) {
@@ -18,6 +18,7 @@ public class ConfigHelper {
         } else {
             config = new MinioConfiguration();
             config.setHost(host);
+            config.setRegion(region);
             config.setCredentialsId(credentialsId);
         }
 

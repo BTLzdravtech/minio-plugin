@@ -20,6 +20,7 @@ import org.kohsuke.stapler.QueryParameter;
 public class MinioBuildStep extends Builder implements SimpleBuildStep {
 
     private String host;
+    private String region;
     private String credentialsId;
     private String bucket;
     private String includes;
@@ -51,6 +52,11 @@ public class MinioBuildStep extends Builder implements SimpleBuildStep {
     }
 
     @DataBoundSetter
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    @DataBoundSetter
     public void setCredentialsId(String credentialsId) {
         this.credentialsId = credentialsId;
     }
@@ -67,6 +73,10 @@ public class MinioBuildStep extends Builder implements SimpleBuildStep {
 
     public String getHost() {
         return host;
+    }
+
+    public String getRegion() {
+        return region;
     }
 
     public String getCredentialsId() {

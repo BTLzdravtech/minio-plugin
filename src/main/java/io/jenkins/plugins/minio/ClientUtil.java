@@ -12,14 +12,15 @@ import java.util.Optional;
 
 public class ClientUtil {
 
-    public static final MinioClient getClient(String host, String credentialsId, @Nonnull Run<?, ?> run) throws CredentialNotFoundException {
-        MinioConfiguration config = ConfigHelper.getConfig(host, credentialsId);
+    public static final MinioClient getClient(String host, String region, String credentialsId, @Nonnull Run<?, ?> run) throws CredentialNotFoundException {
+        MinioConfiguration config = ConfigHelper.getConfig(host, region, credentialsId);
         StandardUsernamePasswordCredentials credentials = Optional.ofNullable(CredentialsProvider.findCredentialById(config.getCredentialsId(),
                 StandardUsernamePasswordCredentials.class,
                 run)).orElseThrow(CredentialNotFoundException::new);
 
         return MinioClient.builder()
                 .endpoint(config.getHost())
+                .region(region)
                 .credentials(credentials.getUsername(), credentials.getPassword().getPlainText())
                 .build();
 
