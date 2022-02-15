@@ -20,7 +20,7 @@ public class ClientUtil {
 
         return MinioClient.builder()
                 .endpoint(config.getHost())
-                .region(region)
+                .region(config.getRegion())
                 .credentials(credentials.getUsername(), credentials.getPassword().getPlainText())
                 .build();
 
